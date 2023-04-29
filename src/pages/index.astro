@@ -4,6 +4,7 @@ import Hero from '../components/Hero.astro';
 import HeroLead from '../components/HeroLead.astro';
 import Contact from '../components/Contact.astro';
 import Credits from '../components/Credits.astro';
+import Navbar from '../components/Navbar.astro';
 
 const introTitle = 'Carlos is trying to grow up...';
 const introLead = '...but instead he is making some Apps & websites...';
@@ -16,17 +17,19 @@ const email = 'carlosgomez.deb@gmail.com';
 
 <Layout>
 
+	<Navbar />
+
   <Hero title={introTitle} >
 		<HeroLead lead={introLead} />
 	</Hero>
 
-	<Hero title={projectsTitle} />
+	<Hero title={projectsTitle} id={'work'} />
 
-	<Hero title={scriptsTitle} />
+	<Hero title={scriptsTitle} id={'scripts'} />
 
-	<Hero title={blogTitle} />
+	<Hero title={blogTitle} id={'articles'} />
 
-	<Hero title={techTitle} />
+	<Hero title={techTitle} id={'tech'} />
 
   <Contact name={email} />
 
