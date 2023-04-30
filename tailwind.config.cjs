@@ -4,6 +4,7 @@ module.exports = {
 	theme: {
 		fontFamily: {
 			'sans': [
+				'Fira Sans',
 				'Fira Code',
 				'monospace',
 				'system-ui',
