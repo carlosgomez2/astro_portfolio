@@ -3,7 +3,7 @@ const pageTitle = 'Carlos Gomez - Web developer';
 ---
 
 <!DOCTYPE html>
-<html lang="en" data-theme="dracula">
+<html lang="en" data-theme="dracula" class="scroll-smooth">
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -26,5 +26,16 @@ const pageTitle = 'Carlos Gomez - Web developer';
 <style is:global>
 	.fira-code {
 		font-family: 'Fira Code', monospace;
+	}
+
+	@keyframes gradient-move {
+		0% { background-position: 0% 0; }
+		100% { background-position: 100% 0; }
+	}
+
+	.gradient-animation {
+		background: linear-gradient(to left, rgb(143 72 245) 0%, rgb(255 46 166) 33%, rgb(143 72 245) 66%, rgb(255 46 166) 100%) 0% 0% / 400% repeat-x padding-box text;
+		color: transparent;
+		animation: gradient-move 12s linear infinite;
 	}
 </style>

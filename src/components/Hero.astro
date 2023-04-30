@@ -1,11 +1,11 @@
 ---
-const { id, title } = Astro.props;
+const { id, klass, heroContentWidth } = Astro.props;
+const contentWidth = heroContentWidth || 'max-w-md';
 ---
 
-<div class="hero min-h-screen bg-base-200" id={id}>
+<div class:list={[klass]} class="hero bg-base-200" id={id}>
   <div class="hero-content text-center">
-    <div class="max-w-md">
-      <h1 class="text-5xl font-semibold text-white">{title}</h1>
+    <div class:list={[contentWidth]}>
       <slot />
     </div>
   </div>

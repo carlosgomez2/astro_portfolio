@@ -1,5 +1,5 @@
 ---
-  const { lead } = Astro.props;
+  const { lead, klass } = Astro.props;
 ---
 
-<p class="py-6 fira-code">{lead}</p>
+<p class:list={[klass]} class="py-6 fira-code">{lead}</p>

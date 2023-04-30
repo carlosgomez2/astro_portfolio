@@ -1,13 +1,15 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.astro';
+import HeroTitle from '../components/HeroTitle.astro';
 import HeroLead from '../components/HeroLead.astro';
 import Contact from '../components/Contact.astro';
 import Credits from '../components/Credits.astro';
 import Navbar from '../components/Navbar.astro';
+import Card from '../components/Card.astro';
 
 const introTitle = 'Carlos is trying to grow up...';
-const introLead = '...but instead he is making some Apps & websites...';
+const introLead = '...but instead spend his time on...';
 const projectsTitle = '...Making some Apps & websites...';
 const scriptsTitle = '...Finding fancy lazy ways to make things happen...';
 const blogTitle = '...Trying to not forget how things work...';
@@ -19,17 +21,75 @@ const email = 'carlosgomez.deb@gmail.com';
 
 	<Navbar />
 
-  <Hero title={introTitle} >
-		<HeroLead lead={introLead} />
+  <Hero id={'intro'} klass={'min-h-screen'}>
+		<HeroTitle title={introTitle} klass={'gradient-animation'} />
+		<HeroLead lead={introLead} klass={'pl-40 lg:-mr-20'} />
 	</Hero>
 
-	<Hero title={projectsTitle} id={'work'} />
+	<Hero id={'work'} klass={'min-h-screen'} heroContentWidth='max-w-full' >
+		<div class="grid xl:lg:grid-cols-3 gap-4">
+			<div class="xl:lg:col-span-2 place-self-center">
+				<div class="max-w-screen-sm">
+					<HeroTitle title={projectsTitle} klass={'place-self-center'} />
+					<button class="btn btn-outline btn-success btn-wide fira-code">More works</button>
+				</div>
+			</div>
 
-	<Hero title={scriptsTitle} id={'scripts'} />
+			<div class="place-self-center carousel w-full">
+				<div id="work-1" class="carousel-item relative w-full">
+					<Card href='/work-1' klass={''} title='Project 1' badge='Hello world' body='Lorem ipsum dolor sit amet, consectetur adipiscing elit.' />
+					<div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+						<a href="#work-3" class="btn btn-circle">❮</a> 
+						<a href="#work-2" class="btn btn-circle mr-4">❯</a>
+					</div>
+				</div>
+				<div id="work-2" class="carousel-item relative w-full">
+					<Card href='/work-1' klass={''} title='Project 1' badge='Hello world' body='Lorem ipsum dolor sit amet, consectetur adipiscing elit.' />
+					<div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+						<a href="#work-1" class="btn btn-circle">❮</a> 
+						<a href="#work-3" class="btn btn-circle mr-4">❯</a>
+					</div>
+				</div>
+				<div id="work-3" class="carousel-item relative w-full">
+					<Card href='/work-1' klass={''} title='Project 1' badge='Hello world' body='Lorem ipsum dolor sit amet, consectetur adipiscing elit.' />
+					<div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+						<a href="#work-2" class="btn btn-circle">❮</a> 
+						<a href="#work-1" class="btn btn-circle mr-4">❯</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</Hero>
 
-	<Hero title={blogTitle} id={'articles'} />
+	<Hero id={'scripts'} klass={'min-h-screen'} heroContentWidth='max-w-full' >
+		<div class="grid xl:lg:grid-cols-3 gap-4">
+			<div class="xl:lg:col-span-2 place-self-center">
+				<div class="indicator">
+					<div class="indicator-item indicator-bottom">
+						<button class="btn btn-accent fira-code">See how</button>
+					</div> 
+					<div class="card bg-neutral">
+						<div class="card-body">
+							<h2 class="card-title text-secondary">Automation</h2> 
+							<p>Automate your workflow</p>
+						</div>
+					</div>
+				</div>
+			</div>
 
-	<Hero title={techTitle} id={'tech'} />
+			<div class="place-self-center">
+				<HeroTitle title={scriptsTitle} />
+			</div>
+		</div>
+	</Hero>
+
+	<Hero id={'articles'} klass={'min-h-screen'}>
+		<HeroTitle title={blogTitle} />
+	</Hero>
+
+	<Hero id={'tech'} klass={'min-h-screen'} >
+		<HeroTitle title={techTitle} />
+	</Hero>
 
   <Contact name={email} />
 
