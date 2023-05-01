@@ -10,7 +10,8 @@ import Card from '../components/Card.astro';
 
 const introTitle = 'Carlos is trying to grow up...';
 const introLead = '...but instead spend his time on...';
-const projectsTitle = '...Making some Apps & websites...';
+const projectsTitle = 'Making some apps & websites';
+const projectsLead = '...focusing on products that make the difference...';
 const scriptsTitle = '...Finding fancy lazy ways to make things happen...';
 const blogTitle = '...Trying to not forget how things work...';
 const techTitle = '...Having fun with these technologies...';
@@ -22,39 +23,46 @@ const email = 'carlosgomez.deb@gmail.com';
 	<Navbar />
 
   <Hero id={'intro'} klass={'min-h-screen'}>
-		<HeroTitle title={introTitle} klass={'gradient-animation'} />
+		<HeroTitle title={introTitle} klass={'gradient-animation text-5xl h-28'} />
 		<HeroLead lead={introLead} klass={'pl-40 lg:-mr-20'} />
 	</Hero>
 
-	<Hero id={'work'} klass={'min-h-screen'} heroContentWidth='max-w-full' >
-		<div class="grid xl:lg:md:grid-cols-3 gap-4">
+	<Hero id={'work'} klass={'min-h-screen'} heroContentWidth={'max-w-full'} heroContentHeight={'h-screen'} >
+		<div class="grid xl:lg:md:grid-cols-3 gap-4 place-items-center h-full">
 			<div class="xl:lg:col-span-2 place-self-center">
 				<div class="max-w-screen-sm">
-					<HeroTitle title={projectsTitle} klass={'place-self-center'} />
+					<HeroTitle title={projectsTitle} klass={'place-self-center xl:lg:text-5xl text-2xl text-white xl:lg:h-28'} />
+					<HeroLead lead={projectsLead} klass={'xl:lg:md:pr-40 xl:lg:md:-mr-20'} />
 					<button class="btn btn-outline btn-success btn-wide fira-code">More works</button>
 				</div>
 			</div>
 
-			<div class="place-self-center carousel w-full">
-				<div id="work-1" class="place-self-center carousel-item relative w-full">
-					<Card href='/work-1' klass={'w-full'} title='Project 1' badge='Hello world' body='Lorem ipsum dolor sit amet, consectetur adipiscing elit.' />
-					<div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-						<a href="#work-3" class="btn btn-circle">❮</a> 
-						<a href="#work-2" class="btn btn-circle">❯</a>
+			<div class="place-self-center carousel w-full h-full">
+				<div id="work-1" class="place-self-center carousel-item relative w-full h-full">
+					<div class="place-self-center">
+						<Card href='/work-1' klass={'w-full min-h-fit'} title='Project 1' badge='Hello world' body='Lorem ipsum dolor sit amet, consectetur adipiscing elit.' />
+						<div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+							<a href="#work-3" class="btn btn-circle">❮</a> 
+							<a href="#work-2" class="btn btn-circle">❯</a>
+						</div>
 					</div>
 				</div>
-				<div id="work-2" class="place-self-center carousel-item relative w-full">
-					<Card href='/work-1' klass={'w-full'} title='Project 2' badge='Hello world' body='Lorem ipsum dolor sit amet, consectetur adipiscing elit.' />
-					<div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-						<a href="#work-1" class="btn btn-circle">❮</a> 
-						<a href="#work-3" class="btn btn-circle">❯</a>
+				<div id="work-2" class="place-self-center carousel-item relative w-full h-full">
+					<div class="place-self-center">
+						<Card href='/work-1' klass={'w-full min-h-fit'} title='Project 2' badge='Hello world' body='Lorem ipsum dolor sit amet, consectetur adipiscing elit.' />
+						<div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+							<a href="#work-1" class="btn btn-circle">❮</a> 
+							<a href="#work-3" class="btn btn-circle">❯</a>
+						</div>
 					</div>
 				</div>
-				<div id="work-3" class="place-self-center carousel-item relative w-full">
-					<Card href='/work-1' klass={'w-full'} title='Project 3' badge='Hello world' body='Lorem ipsum dolor sit amet, consectetur adipiscing elit.' />
-					<div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-						<a href="#work-2" class="btn btn-circle">❮</a> 
-						<a href="#work-1" class="btn btn-circle">❯</a>
+				<div id="work-3" class="place-self-center carousel-item relative w-full h-full">
+					<div class="place-self-center">
+						<Card href='/work-1' klass={'w-full min-h-fit'} title='Project 3' badge='Hello world' body='Lorem ipsum dolor sit amet, consectetur adipiscing elit.' />
+						<div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+							<a href="#work-2" class="btn btn-circle">❮</a> 
+							<a href="#work-1" class="btn btn-circle">❯</a>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -78,18 +86,18 @@ const email = 'carlosgomez.deb@gmail.com';
 			</div>
 
 			<div class="place-self-center">
-				<HeroTitle title={scriptsTitle} />
+				<HeroTitle title={scriptsTitle} klass={'text-5xl text-white h-28'} />
 			</div>
 		</div>
 	</Hero>
 
 	<Hero id={'articles'} klass={'min-h-screen'}>
-		<HeroTitle title={blogTitle} />
+		<HeroTitle title={blogTitle} klass={'text-5xl text-white h-28'} />
 	</Hero>
 
 	<Hero id={'tech'} klass={'h-screen-75'} heroContentWidth='max-w-full' >
 		<div class="mb-10">
-			<HeroTitle title={techTitle} />
+			<HeroTitle title={techTitle} klass={'text-5xl text-white h-28'} />
 		</div>
 		<div class="divider mt-10"></div>
 		<div class="mt-10">
@@ -111,6 +119,11 @@ const email = 'carlosgomez.deb@gmail.com';
 			<div class="badge badge-lg my-1">Bootstrap</div>
 			<div class="badge badge-lg my-1">CSS3</div>
 			<div class="badge badge-lg my-1">Docker</div>
+			<div class="badge badge-lg my-1">Machine Learning</div>
+			<div class="badge badge-lg my-1">Mailgun</div>
+			<div class="badge badge-lg my-1">Astro</div>
+			<div class="badge badge-lg my-1">Astro</div>
+			<div class="badge badge-lg my-1">Tailwind</div>
 		</div>
 	</Hero>
 
@@ -121,13 +134,5 @@ const email = 'carlosgomez.deb@gmail.com';
 </Layout>
 
 <script is:inline>
-	const anchors = document.getElementsByClassName('btn-circle');
 
-	[...anchors].forEach(element => {
-		element.addEventListener('click', function(event) {
-			event.preventDefault();
-			const target = document.querySelector(this.getAttribute('href'));
-			target.scrollIntoView({ behavior: 'smooth' });
-		});
-	});
 </script>

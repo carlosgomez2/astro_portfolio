@@ -1,6 +1,6 @@
 ---
 const { title, klass } = Astro.props;
-const color = klass !== undefined ? `${klass}` : 'text-white';
+// const color = klass !== undefined ? `${klass}` : 'text-white';
 ---
 
-<h1 class:list={[color]} class="text-5xl font-semibold h-28">{title}</h1>
+<h1 class:list={[klass]} class="font-semibold">{title}</h1>
