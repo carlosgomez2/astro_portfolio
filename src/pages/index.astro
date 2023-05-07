@@ -7,14 +7,18 @@ import Contact from '../components/Contact.astro';
 import Credits from '../components/Credits.astro';
 import Navbar from '../components/Navbar.astro';
 import Card from '../components/Card.astro';
+import ArticlesGrid from '../components/ArticlesGrid.astro';
 
-const introTitle = 'Carlos is trying to grow up...';
-const introLead = '...but instead spend his time on...';
-const projectsTitle = 'Making some apps & websites';
-const projectsLead = '...focusing on products that make the difference...';
-const scriptsTitle = '...Finding fancy lazy ways to make things happen...';
-const blogTitle = '...Trying to not forget how things work...';
-const techTitle = '...Having fun with these technologies...';
+const introTitle = 'Carlos quiere crecer...';
+const introLead = '...y está decidido a hacerlo a través de su pasión por el desarrollo web.';
+const projectsTitle = 'Creando apps y sitios web que marcan la diferencia...';
+const projectsLead = '...enfocado en proyectos que no solo resuelven problemas, sino que también mejoran la vida de las personas.';
+const projectsCTA = 'Más proyectos';
+const blogTitle = 'Compartiendo su conocimiento...';
+const blogLead = '...a través de artículos técnicos y reflexiones sobre la industria del desarrollo web.';
+const blogCTA = 'Leer más';
+const techTitle = 'Experimentando con nuevas tecnologías...';
+const techLead = '...siempre interesado en explorar y aprender nuevas tecnologías.';
 const email = 'carlosgomez.deb@gmail.com';
 ---
 
@@ -23,45 +27,49 @@ const email = 'carlosgomez.deb@gmail.com';
 	<Navbar />
 
   <Hero id={'intro'} klass={'min-h-screen'}>
-		<HeroTitle title={introTitle} klass={'gradient-animation text-5xl h-28'} />
-		<HeroLead lead={introLead} klass={'pl-40 lg:-mr-20'} />
+		<HeroTitle title={introTitle} klass={'gradient-animation text-7xl sm:h-full h-full'} />
+		<HeroLead lead={introLead} klass={'lg:pl-40 md:-mr-20'} />
 	</Hero>
 
-	<Hero id={'work'} klass={'min-h-screen'} heroContentWidth={'max-w-full'} heroContentHeight={'h-screen'} >
-		<div class="grid xl:lg:md:grid-cols-3 gap-4 place-items-center h-full">
-			<div class="xl:lg:col-span-2 place-self-center">
-				<div class="max-w-screen-sm">
-					<HeroTitle title={projectsTitle} klass={'place-self-center xl:lg:text-5xl text-2xl text-white xl:lg:h-28'} />
-					<HeroLead lead={projectsLead} klass={'xl:lg:md:pr-40 xl:lg:md:-mr-20'} />
-					<button class="btn btn-outline btn-success btn-wide fira-code">More works</button>
-				</div>
+	<Hero id={'work'} klass={'flex items-stretch py-auto'} heroContentWidth={'w-full'} heroContentHeight={'h-screen'}>
+
+		<div class="flex flex-col items-center justify-center gap-6 sm:gap-9 sm:flex-row self-center h-full">
+			<div class="md:w-1/2 pl-4">
+				<HeroTitle title={projectsTitle} klass={'place-self-center xl:lg:text-5xl text-2xl text-white xl:lg:h-20'} />
+				<HeroLead lead={projectsLead} klass={'px-20 sm:px-0'} />
+				<button class="btn btn-outline btn-success btn-wide fira-code">{projectsCTA}</button>
 			</div>
 
-			<div class="place-self-center carousel w-full h-full">
-				<div id="work-1" class="place-self-center carousel-item relative w-full h-full">
-					<div class="place-self-center">
-						<Card href='/work-1' klass={'w-full min-h-fit'} title='Project 1' badge='Hello world' body='Lorem ipsum dolor sit amet, consectetur adipiscing elit.' />
-						<div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-							<a href="#work-3" class="btn btn-circle">❮</a> 
-							<a href="#work-2" class="btn btn-circle">❯</a>
+			<div class="md:w-1/2 flex items-center justify-center">
+				<!-- Cards -->
+				<div class="w-2/3">
+					<div class="place-self-center carousel w-full h-full">
+						<div id="work-1" class="place-self-center carousel-item relative w-full h-full">
+							<div class="place-self-center">
+								<Card href='/work-1' klass={'w-full min-h-fit'} title='Project 1' badge='Hello world' body='Lorem ipsum dolor sit amet, consectetur adipiscing elit.' />
+								<div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+									<a onclick="carousel('work-3', event)" href="#work-3" class="btn btn-circle">❮</a> 
+									<a onclick="carousel('work-2', event)" href="#work-2" class="btn btn-circle">❯</a>
+								</div>
+							</div>
 						</div>
-					</div>
-				</div>
-				<div id="work-2" class="place-self-center carousel-item relative w-full h-full">
-					<div class="place-self-center">
-						<Card href='/work-1' klass={'w-full min-h-fit'} title='Project 2' badge='Hello world' body='Lorem ipsum dolor sit amet, consectetur adipiscing elit.' />
-						<div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-							<a href="#work-1" class="btn btn-circle">❮</a> 
-							<a href="#work-3" class="btn btn-circle">❯</a>
+						<div id="work-2" class="place-self-center carousel-item relative w-full h-full">
+							<div class="place-self-center">
+								<Card href='/work-1' klass={'w-full min-h-fit'} title='Project 2' badge='Hello world' body='Lorem ipsum dolor sit amet, consectetur adipiscing elit.' />
+								<div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+									<a onclick="carousel('work-1', event)" href="#work-1" class="btn btn-circle">❮</a> 
+									<a onclick="carousel('work-3', event)" href="#work-3" class="btn btn-circle">❯</a>
+								</div>
+							</div>
 						</div>
-					</div>
-				</div>
-				<div id="work-3" class="place-self-center carousel-item relative w-full h-full">
-					<div class="place-self-center">
-						<Card href='/work-1' klass={'w-full min-h-fit'} title='Project 3' badge='Hello world' body='Lorem ipsum dolor sit amet, consectetur adipiscing elit.' />
-						<div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-							<a href="#work-2" class="btn btn-circle">❮</a> 
-							<a href="#work-1" class="btn btn-circle">❯</a>
+						<div id="work-3" class="place-self-center carousel-item relative w-full h-full">
+							<div class="place-self-center">
+								<Card href='/work-1' klass={'w-full min-h-fit'} title='Project 3' badge='Hello world' body='Lorem ipsum dolor sit amet, consectetur adipiscing elit.' />
+								<div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+									<a onclick="carousel('work-2', event)" href="#work-2" class="btn btn-circle">❮</a> 
+									<a onclick="carousel('work-1', event)" href="#work-1" class="btn btn-circle">❯</a>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -69,61 +77,47 @@ const email = 'carlosgomez.deb@gmail.com';
 		</div>
 	</Hero>
 
-	<Hero id={'scripts'} klass={'min-h-screen'} heroContentWidth='max-w-full' >
-		<div class="grid xl:lg:grid-cols-3 gap-4">
-			<div class="xl:lg:col-span-2 place-self-center">
-				<div class="indicator">
-					<div class="indicator-item indicator-bottom">
-						<button class="btn btn-accent fira-code">See how</button>
-					</div> 
-					<div class="card bg-neutral">
-						<div class="card-body">
-							<h2 class="card-title text-secondary">Automation</h2> 
-							<p>Automate your workflow</p>
-						</div>
-					</div>
-				</div>
+	<Hero id={'articles'}  klass={'flex items-stretch py-auto'} heroContentWidth={'w-full'} heroContentHeight={'h-screen'}>
+		<div class="flex flex-col md:sm:w-full xl:lg:md:flex-row items-stretch justify-between gap-6 sm:gap-9 self-center h-full">
+			<div class="w-full xl:lg:md:sm:w-1/3 pl-4 flex flex-col justify-center items-center h-full">
+				<HeroTitle title={blogTitle} klass={'xl:lg:text-5xl text-2xl text-white self-auto'} />
+				<HeroLead lead={blogLead} klass={'px-20 sm:px-0'} />
+				<button class="btn btn-outline btn-success btn-wide fira-code">{blogCTA}</button>
 			</div>
 
-			<div class="place-self-center">
-				<HeroTitle title={scriptsTitle} klass={'text-5xl text-white h-28'} />
+			<div class="w-full xl:lg:md:sm:w-2/3 h-1/2 xl:lg:md:h-full backdrop-blur-sm bg-base-300/30">
+				<ArticlesGrid />
 			</div>
 		</div>
 	</Hero>
 
-	<Hero id={'articles'} klass={'min-h-screen'}>
-		<HeroTitle title={blogTitle} klass={'text-5xl text-white h-28'} />
-	</Hero>
-
-	<Hero id={'tech'} klass={'h-screen-75'} heroContentWidth='max-w-full' >
+	<Hero id={'tech'} klass={'h-screen'} heroContentWidth='max-w-full' >
 		<div class="mb-10">
-			<HeroTitle title={techTitle} klass={'text-5xl text-white h-28'} />
+			<HeroTitle title={techTitle} klass={'xl:lg:text-5xl text-2xl text-white h-full'} />
+			<HeroLead lead={techLead} klass={'px-20 sm:px-0'} />
 		</div>
 		<div class="divider mt-10"></div>
-		<div class="mt-10">
-			<div class="badge badge-lg my-1">Ruby</div>
-			<div class="badge badge-lg my-1">Python</div>
-			<div class="badge badge-lg my-1">Javascript</div>
-			<div class="badge badge-lg my-1">Postgresql</div>
+		<div class="mt-10 xl:lg:md:px-64 px-10">
+			<div class="badge badge-lg my-1"><i class="fa-regular fa-gem text-red-600"></i>&nbsp;Ruby</div>
+			<div class="badge badge-lg my-1"><i class="fa-brands fa-python text-blue-500"></i>&nbsp;Python</div>
+			<div class="badge badge-lg my-1"><i class="fa-brands fa-square-js text-yellow-300"></i>&nbsp;Javascript</div>
+			<div class="badge badge-lg my-1"><i class="fa-solid fa-database text-blue-500"></i>&nbsp;Postgresql</div>
+			<div class="badge badge-lg my-1"><i class="fa-brands fa-aws text-yellow-400"></i>&nbsp;AWS</div>
+			<div class="badge badge-lg my-1"><i class="fa-brands fa-digital-ocean text-blue-400"></i>&nbsp;Digital Ocean</div>
+			<div class="badge badge-lg my-1"><i class="fa-brands fa-git text-orange-400"></i>&nbsp;Git</div>
+			<div class="badge badge-lg my-1"><i class="fa-brands fa-github text-black"></i>&nbsp;Github</div>
+			<div class="badge badge-lg my-1"><i class="fa-brands fa-gitlab text-red-300"></i>&nbsp;Gitlab</div>
+			<div class="badge badge-lg my-1"><i class="fa-brands fa-linux text-white"></i>&nbsp;Linux</div>
+			<div class="badge badge-lg my-1"><i class="fa-solid fa-database text-blue-400"></i>&nbsp;Mysql</div>
+			<div class="badge badge-lg my-1"><i class="fa-solid fa-database text-red-600"></i>&nbsp;Redis</div>
+			<div class="badge badge-lg my-1"><i class="fa-brands fa-bootstrap text-purple-500"></i>&nbsp;Bootstrap</div>
+			<div class="badge badge-lg my-1"><i class="fa-brands fa-css3-alt text-orange-600"></i>&nbsp;CSS3</div>
+			<div class="badge badge-lg my-1"><i class="fa-brands fa-docker text-blue-600"></i>&nbsp;Docker</div>
+			<div class="badge badge-lg my-1">Tailwind</div>
+			<div class="badge badge-lg my-1">Nginx</div>
+			<div class="badge badge-lg my-1">Astro</div>
 			<div class="badge badge-lg my-1">Django</div>
 			<div class="badge badge-lg my-1">Ruby on Rails</div>
-			<div class="badge badge-lg my-1">AWS</div>
-			<div class="badge badge-lg my-1">Digital Ocean</div>
-			<div class="badge badge-lg my-1">Git</div>
-			<div class="badge badge-lg my-1">Github</div>
-			<div class="badge badge-lg my-1">Gitlab</div>
-			<div class="badge badge-lg my-1">Linux</div>
-			<div class="badge badge-lg my-1">Nginx</div>
-			<div class="badge badge-lg my-1">Mysql</div>
-			<div class="badge badge-lg my-1">Redis</div>
-			<div class="badge badge-lg my-1">Bootstrap</div>
-			<div class="badge badge-lg my-1">CSS3</div>
-			<div class="badge badge-lg my-1">Docker</div>
-			<div class="badge badge-lg my-1">Machine Learning</div>
-			<div class="badge badge-lg my-1">Mailgun</div>
-			<div class="badge badge-lg my-1">Astro</div>
-			<div class="badge badge-lg my-1">Astro</div>
-			<div class="badge badge-lg my-1">Tailwind</div>
 		</div>
 	</Hero>
 
@@ -134,5 +128,10 @@ const email = 'carlosgomez.deb@gmail.com';
 </Layout>
 
 <script is:inline>
+	function carousel(id, event) {
+		event.preventDefault();
 
+		const slide = document.getElementById(id);
+		slide.scrollIntoView({block: 'center'});
+	}
 </script>

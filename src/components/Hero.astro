@@ -1,11 +1,11 @@
 ---
 const { id, klass, heroContentWidth, heroContentHeight } = Astro.props;
-const contentWidth = heroContentWidth || 'max-w-md';
+const contentWidth = heroContentWidth || 'max-w';
 const contentHeight = heroContentHeight || '';
 ---
 
 <div class:list={[klass]} class="hero bg-base-200" id={id}>
-  <div class:list={[heroContentHeight]} class="hero-content text-center">
+  <div class:list={[heroContentHeight, heroContentWidth]} class="text-center">
     <div class:list={[contentWidth, heroContentHeight]} class="align-middle" >
       <slot />
     </div>
