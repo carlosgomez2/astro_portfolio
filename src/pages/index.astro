@@ -9,7 +9,7 @@ import Navbar from '../components/Navbar.astro';
 import Card from '../components/Card.astro';
 import ArticlesGrid from '../components/ArticlesGrid.astro';
 
-const introTitle = 'Carlos quiere crecer...';
+const introTitle = 'Carlos busca crecer...';
 const introLead = '...y está decidido a hacerlo a través de su pasión por el desarrollo web.';
 const projectsTitle = 'Creando apps y sitios web que marcan la diferencia...';
 const projectsLead = '...enfocado en proyectos que no solo resuelven problemas, sino que también mejoran la vida de las personas.';
@@ -20,6 +20,9 @@ const blogCTA = 'Leer más';
 const techTitle = 'Experimentando con nuevas tecnologías...';
 const techLead = '...siempre interesado en explorar y aprender nuevas tecnologías.';
 const email = 'carlosgomez.deb@gmail.com';
+
+import * as readyWork from '../content/works/joinready.md';
+console.log(readyWork.frontmatter.slug);
 ---
 
 <Layout>
@@ -46,7 +49,7 @@ const email = 'carlosgomez.deb@gmail.com';
 					<div class="place-self-center carousel w-full h-full">
 						<div id="work-1" class="place-self-center carousel-item relative w-full h-full">
 							<div class="place-self-center">
-								<Card href='/work-1' klass={'w-full min-h-fit'} title='Project 1' badge='Hello world' body='Lorem ipsum dolor sit amet, consectetur adipiscing elit.' />
+								<Card href={readyWork.frontmatter.slug} klass={'w-full min-h-fit'} title={readyWork.frontmatter.title} badges={readyWork.frontmatter.tags} body={readyWork.frontmatter.description} />
 								<div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
 									<a onclick="carousel('work-3', event)" href="#work-3" class="btn btn-circle">❮</a> 
 									<a onclick="carousel('work-2', event)" href="#work-2" class="btn btn-circle">❯</a>
@@ -55,19 +58,19 @@ const email = 'carlosgomez.deb@gmail.com';
 						</div>
 						<div id="work-2" class="place-self-center carousel-item relative w-full h-full">
 							<div class="place-self-center">
-								<Card href='/work-1' klass={'w-full min-h-fit'} title='Project 2' badge='Hello world' body='Lorem ipsum dolor sit amet, consectetur adipiscing elit.' />
+								<Card href='/work-2' klass={'w-full min-h-fit'} title='Project 2' badges='' body='Lorem ipsum dolor sit amet, consectetur adipiscing elit.' />
 								<div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-									<a onclick="carousel('work-1', event)" href="#work-1" class="btn btn-circle">❮</a> 
+									<a onclick="carousel({readyWork.frontmatter.slug}, event)" href="#work-1" class="btn btn-circle">❮</a> 
 									<a onclick="carousel('work-3', event)" href="#work-3" class="btn btn-circle">❯</a>
 								</div>
 							</div>
 						</div>
 						<div id="work-3" class="place-self-center carousel-item relative w-full h-full">
 							<div class="place-self-center">
-								<Card href='/work-1' klass={'w-full min-h-fit'} title='Project 3' badge='Hello world' body='Lorem ipsum dolor sit amet, consectetur adipiscing elit.' />
+								<Card href='/work-3' klass={'w-full min-h-fit'} title='Project 3' badges='' body='Lorem ipsum dolor sit amet, consectetur adipiscing elit.' />
 								<div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
 									<a onclick="carousel('work-2', event)" href="#work-2" class="btn btn-circle">❮</a> 
-									<a onclick="carousel('work-1', event)" href="#work-1" class="btn btn-circle">❯</a>
+									<a onclick="carousel({readyWork.frontmatter.slug}, event)" href="#work-1" class="btn btn-circle">❯</a>
 								</div>
 							</div>
 						</div>
@@ -91,7 +94,7 @@ const email = 'carlosgomez.deb@gmail.com';
 		</div>
 	</Hero>
 
-	<Hero id={'tech'} klass={'h-screen'} heroContentWidth='max-w-full' >
+	<Hero id={'tech'} klass={'h-screen'} heroContentWidth='max-w-full'>
 		<div class="mb-10">
 			<HeroTitle title={techTitle} klass={'xl:lg:text-5xl text-2xl text-white h-full'} />
 			<HeroLead lead={techLead} klass={'px-20 sm:px-0'} />
