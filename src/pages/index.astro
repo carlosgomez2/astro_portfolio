@@ -9,20 +9,29 @@ import Navbar from '../components/Navbar.astro';
 import Card from '../components/Card.astro';
 import ArticlesGrid from '../components/ArticlesGrid.astro';
 
+// Intro section
 const introTitle = 'Carlos busca crecer...';
 const introLead = '...y está decidido a hacerlo a través de su pasión por el desarrollo web.';
+
+// Work section
 const projectsTitle = 'Creando apps y sitios web que marcan la diferencia...';
 const projectsLead = '...enfocado en proyectos que no solo resuelven problemas, sino que también mejoran la vida de las personas.';
 const projectsCTA = 'Más proyectos';
+import * as readyWork from '../content/works/joinready.md';
+import * as marialindaWork from '../content/works/marialinda.md';
+import * as medikappWork from '../content/works/medikapp.md';
+
+// Blog section
 const blogTitle = 'Compartiendo su conocimiento...';
 const blogLead = '...a través de artículos técnicos y reflexiones sobre la industria del desarrollo web.';
 const blogCTA = 'Leer más';
+
+// Tech section
 const techTitle = 'Experimentando con nuevas tecnologías...';
 const techLead = '...siempre interesado en explorar y aprender nuevas tecnologías.';
-const email = 'carlosgomez.deb@gmail.com';
 
-import * as readyWork from '../content/works/joinready.md';
-console.log(readyWork.frontmatter.slug);
+// Contact section
+const email = 'carlosgomez.deb@gmail.com';
 ---
 
 <Layout>
@@ -49,7 +58,7 @@ console.log(readyWork.frontmatter.slug);
 					<div class="place-self-center carousel w-full h-full">
 						<div id="work-1" class="place-self-center carousel-item relative w-full h-full">
 							<div class="place-self-center">
-								<Card href={readyWork.frontmatter.slug} klass={'w-full min-h-fit'} title={readyWork.frontmatter.title} badges={readyWork.frontmatter.tags} body={readyWork.frontmatter.description} />
+								<Card href={readyWork.frontmatter.slug} klass={'w-full min-h-fit'} title={readyWork.frontmatter.title} badges={readyWork.frontmatter.tags} body={readyWork.frontmatter.description} image={readyWork.frontmatter.image} />
 								<div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
 									<a onclick="carousel('work-3', event)" href="#work-3" class="btn btn-circle">❮</a> 
 									<a onclick="carousel('work-2', event)" href="#work-2" class="btn btn-circle">❯</a>
@@ -58,19 +67,19 @@ console.log(readyWork.frontmatter.slug);
 						</div>
 						<div id="work-2" class="place-self-center carousel-item relative w-full h-full">
 							<div class="place-self-center">
-								<Card href='/work-2' klass={'w-full min-h-fit'} title='Project 2' badges='' body='Lorem ipsum dolor sit amet, consectetur adipiscing elit.' />
+								<Card href={marialindaWork.frontmatter.slug} klass={'w-full min-h-fit'} title={marialindaWork.frontmatter.title} badges={marialindaWork.frontmatter.tags} body={marialindaWork.frontmatter.description} image={marialindaWork.frontmatter.image} />
 								<div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-									<a onclick="carousel({readyWork.frontmatter.slug}, event)" href="#work-1" class="btn btn-circle">❮</a> 
+									<a onclick="carousel('work-1', event)" href="#work-1" class="btn btn-circle">❮</a> 
 									<a onclick="carousel('work-3', event)" href="#work-3" class="btn btn-circle">❯</a>
 								</div>
 							</div>
 						</div>
 						<div id="work-3" class="place-self-center carousel-item relative w-full h-full">
 							<div class="place-self-center">
-								<Card href='/work-3' klass={'w-full min-h-fit'} title='Project 3' badges='' body='Lorem ipsum dolor sit amet, consectetur adipiscing elit.' />
+								<Card href={medikappWork.frontmatter.slug} klass={'w-full min-h-fit'} title={medikappWork.frontmatter.title} badges={medikappWork.frontmatter.tags} body={medikappWork.frontmatter.description} image={medikappWork.frontmatter.image} />
 								<div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
 									<a onclick="carousel('work-2', event)" href="#work-2" class="btn btn-circle">❮</a> 
-									<a onclick="carousel({readyWork.frontmatter.slug}, event)" href="#work-1" class="btn btn-circle">❯</a>
+									<a onclick="carousel('work-1', event)" href="#work-1" class="btn btn-circle">❯</a>
 								</div>
 							</div>
 						</div>

@@ -4,6 +4,7 @@ author: Carlos Gómez
 description: JoinReady una plataforma freelancer que integra tecnologías modernas como Ruby on Rails, Stimulus, entre otras.
 tags: ['Ruby on Rails', 'Startup']
 slug: joinready
+image: '/images/thalia-tran-d1Wj9qU5C-o-unsplash.jpg'
 ---
 
 # JoinReady

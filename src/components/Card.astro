@@ -1,11 +1,11 @@
 ---
-const { href, title, badges, body, klass } = Astro.props;
+const { href, title, badges, body, klass, image } = Astro.props;
 ---
 
 <li class:list={[klass]} class="card w-96 bg-base-300 shadow-xl">
 	<a href={href}>	
 		<figure>
-			<img src="/images/thalia-tran-d1Wj9qU5C-o-unsplash.jpg" alt="Code 1" /></figure>
+			<img src={image} alt="Code 1" class="max-w-full transition duration-300 ease-in-out transform rounded-md hover:scale-110" /></figure>
 		<div class="card-body">
 			<h2 class="fira-code card-title">
 				{title}
