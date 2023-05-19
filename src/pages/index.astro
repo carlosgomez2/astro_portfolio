@@ -9,17 +9,18 @@ import Navbar from '../components/Navbar.astro';
 import Card from '../components/Card.astro';
 import ArticlesGrid from '../components/ArticlesGrid.astro';
 
+import * as readyWork from '../content/works/joinready.mdx';
+import * as marialindaWork from '../content/works/marialinda.mdx';
+import * as medikappWork from '../content/works/medikapp.mdx';
+
 // Intro section
-const introTitle = 'Carlos busca crecer...';
-const introLead = '...y está decidido a hacerlo a través de su pasión por el desarrollo web.';
+const introTitle = 'Carlos intenta crecer,';
+const introLead = 'en lugar de eso pasa su tiempo...';
 
 // Work section
-const projectsTitle = 'Creando apps y sitios web que marcan la diferencia...';
+const projectsTitle = '...creando apps y sitios web que marcan la diferencia...';
 const projectsLead = '...enfocado en proyectos que no solo resuelven problemas, sino que también mejoran la vida de las personas.';
 const projectsCTA = 'Más proyectos';
-import * as readyWork from '../content/works/joinready.md';
-import * as marialindaWork from '../content/works/marialinda.md';
-import * as medikappWork from '../content/works/medikapp.md';
 
 // Blog section
 const blogTitle = 'Compartiendo su conocimiento...';
@@ -44,14 +45,7 @@ const email = 'carlosgomez.deb@gmail.com';
 	</Hero>
 
 	<Hero id={'work'} klass={'flex items-stretch py-auto'} heroContentWidth={'w-full'} heroContentHeight={'h-screen'}>
-
 		<div class="flex flex-col items-center justify-center gap-6 sm:gap-9 sm:flex-row self-center h-full">
-			<div class="md:w-1/2 pl-4">
-				<HeroTitle title={projectsTitle} klass={'place-self-center xl:lg:text-5xl text-2xl text-white xl:lg:h-20'} />
-				<HeroLead lead={projectsLead} klass={'px-20 sm:px-0'} />
-				<button class="btn btn-outline btn-success btn-wide fira-code">{projectsCTA}</button>
-			</div>
-
 			<div class="md:w-1/2 flex items-center justify-center">
 				<!-- Cards -->
 				<div class="w-2/3">
@@ -85,6 +79,12 @@ const email = 'carlosgomez.deb@gmail.com';
 						</div>
 					</div>
 				</div>
+			</div>
+
+			<div class="md:w-1/2 xl:lg:pr-20">
+				<HeroTitle title={projectsTitle} klass={'place-self-center xl:lg:text-5xl text-2xl text-white xl:lg:h-20'} />
+				<HeroLead lead={projectsLead} klass={'px-20 sm:px-0'} />
+				<button class="btn btn-outline btn-success btn-wide fira-code">{projectsCTA}</button>
 			</div>
 		</div>
 	</Hero>

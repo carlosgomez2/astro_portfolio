@@ -1,0 +1,30 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+
+export async function getStaticPaths() {
+  const works = await Astro.glob('../../content/works/*.mdx')
+
+  return works.map(work => ({
+    params: { 
+      slug: work.frontmatter.slug.split('/')[1]
+    },
+    props: {
+      work
+    },
+  }))
+}
+
+const { Content } = Astro.props.work
+const { title, description } = Astro.props.work.frontmatter;
+---
+
+<Layout>
+  <Navbar />
+
+  <article class="container sm:mx-auto px-14 antialiased font-light text-lg text-justify">
+    <h1 class="text-4xl my-5 font-bold underline decoration-indigo-500 decoration-double">{title}</h1>
+    <p class="tracking-wide">{description}</p>
+    <Content class="" />
+  </article>
+</Layout>

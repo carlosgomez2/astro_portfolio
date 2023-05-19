@@ -1,11 +1,15 @@
 ---
-  const logo = Astro.props;
-  const articles = 'Artículos';
-  const work = 'Trabajos';
-  const tech = 'Tecnologías';
-  const contact = 'Contacto';
-  const email = 'carlosgomez.deb@gmail.com';
-  const mailto = `mailto:${email}`;
+const logo = Astro.props;
+const articles = 'Artículos';
+const work = 'Trabajos';
+const tech = 'Tecnologías';
+const contact = 'Contacto';
+const email = 'carlosgomez.deb@gmail.com';
+const mailto = `mailto:${email}`;
+
+import * as readyWork from '../content/works/joinready.mdx';
+import * as marialindaWork from '../content/works/marialinda.mdx';
+import * as medikappWork from '../content/works/medikapp.mdx';
 ---
 
 <div class="navbar backdrop-blur-sm bg-base-300/30 top-0 sticky z-50">
@@ -22,8 +26,9 @@
             <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"/></svg>
           </a>
           <ul class="p-2 bg-base-300">
-            <li><a href="/work-1">Submenu 1</a></li>
-            <li><a href="/work-1">Submenu 2</a></li>
+            <li><a href={readyWork.frontmatter.slug}>{readyWork.frontmatter.title}</a></li>
+            <li><a href={marialindaWork.frontmatter.slug}>{marialindaWork.frontmatter.title}</a></li>
+            <li><a href={medikappWork.frontmatter.slug}>{medikappWork.frontmatter.title}</a></li>
           </ul>
         </li>
         <li><a href="#articles">{articles}</a></li>
@@ -44,9 +49,10 @@
           {work}
           <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"/></svg>
         </a>
-        <ul class="p-2">
-          <li><a href="/work-1">Submenu 1</a></li>
-          <li><a href="/work-1">Submenu 2</a></li>
+        <ul class="p-2 bg-base-300">
+          <li><a href={readyWork.frontmatter.slug}>{readyWork.frontmatter.title}</a></li>
+          <li><a href={marialindaWork.frontmatter.slug}>{marialindaWork.frontmatter.title}</a></li>
+          <li><a href={medikappWork.frontmatter.slug}>{medikappWork.frontmatter.title}</a></li>
         </ul>
       </li>
       <li><a href="#articles">{articles}</a></li>
