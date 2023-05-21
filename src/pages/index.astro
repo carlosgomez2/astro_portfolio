@@ -11,7 +11,7 @@ import ArticlesGrid from '../components/ArticlesGrid.astro';
 
 import * as readyWork from '../content/works/joinready.mdx';
 import * as marialindaWork from '../content/works/marialinda.mdx';
-import * as medikappWork from '../content/works/medikapp.mdx';
+import * as reinaMadreWork from '../content/works/reinamadre.mdx';
 
 // Intro section
 const introTitle = 'Carlos intenta crecer,';
@@ -70,7 +70,7 @@ const email = 'carlosgomez.deb@gmail.com';
 						</div>
 						<div id="work-3" class="place-self-center carousel-item relative w-full h-full">
 							<div class="place-self-center">
-								<Card href={medikappWork.frontmatter.slug} klass={'w-full min-h-fit'} title={medikappWork.frontmatter.title} badges={medikappWork.frontmatter.tags} body={medikappWork.frontmatter.description} image={medikappWork.frontmatter.image} />
+								<Card href={reinaMadreWork.frontmatter.slug} klass={'w-full min-h-fit'} title={reinaMadreWork.frontmatter.title} badges={reinaMadreWork.frontmatter.tags} body={reinaMadreWork.frontmatter.description} image={reinaMadreWork.frontmatter.image} />
 								<div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
 									<a onclick="carousel('work-2', event)" href="#work-2" class="btn btn-circle">❮</a> 
 									<a onclick="carousel('work-1', event)" href="#work-1" class="btn btn-circle">❯</a>

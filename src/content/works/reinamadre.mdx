@@ -1,15 +1,31 @@
 ---
 title: 'Reina Madre'
 author: Carlos Gómez
-description: Desarrolle una aplicación de gestión de practica médica para pequeños consultorios en Ruby on Rails.
+description: Un proyecto en Django para la empresa Reina Madre, especializada en gestión de tratamientos ginecologicos en general.
 tags: ['Django', 'Gestión', 'Salud']
 slug: works/reinamadre
 image: '/images/national-cancer-institute-NFvdKIhxYlU-unsplash.jpg'
 ---
 
+import Link from '../../components/Link.astro';
+
 Durante mi experiencia como desarrollador web, tuve la oportunidad de trabajar en un proyecto para la empresa Reina Madre, especializada en tratamientos médicos para mujeres, como papanicolau, ultrasonidos, embarazos, consultas pediátricas y ginecología en general. En este proyecto, desarrollé junto a un equipo el sistema de gestión de consultas, tratamientos, estudios y otros procesos relacionados.
 
 La aplicación se desarrolló utilizando tecnologías de vanguardia, como Django, Django Rest Framework, MySQL, jQuery, Bootstrap, Google Cloud Platform, entre otras. Mi responsabilidad en el proyecto fue llevar a buen puerto las nuevas features de la plataforma y asegurar que todo el equipo trabajara de manera eficiente y efectiva.
+
+```python
+def get_queryset(self):
+    queryset = super().get_queryset()
+    if self.request.user.is_superuser:
+        return queryset
+    return queryset.filter(user=self.request.user)
+
+def perform_create(self, serializer):
+    if self.request.user.is_superuser:
+        serializer.save()
+    else:
+        serializer.save(user=self.request.user)
+```
 
 El sistema de gestión de consultas y tratamientos permitió a los profesionales médicos de Reina Madre llevar un control efectivo de los tratamientos de las pacientes. Con esta herramienta, se pudo mejorar la gestión de las citas, los tratamientos y los estudios, lo que permitió una atención más eficiente y efectiva de las pacientes.
 
@@ -19,4 +35,4 @@ Por otro lado, la utilización de una base de datos como MySQL, permitió una r�
 
 En conclusión, el desarrollo del sistema de gestión de consultas, tratamientos, estudios y otros procesos para la empresa Reina Madre, me permitió adquirir experiencia en el uso de tecnologías de última generación, como Django, Django Rest Framework, MySQL, jQuery, Bootstrap y Google Cloud Platform. Estoy orgulloso de haber contribuido a la mejora de la práctica médica de esta compañía, y estoy emocionado por seguir aprendiendo y creciendo en este campo.
 
-[Reina Madre](https://reinamadre.mx/)
+<Link href="https://reinamadre.mx/" text="Reina Madre" />
