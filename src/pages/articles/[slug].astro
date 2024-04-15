@@ -1,0 +1,32 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+
+export async function getStaticPaths() {
+  const articles = await Astro.glob('../../content/articles/*.mdx')
+
+  return articles.map(article => ({
+    params: { 
+      slug: article.frontmatter.slug.split('/')[1]
+    },
+    props: {
+      article
+    },
+  }))
+}
+
+const { Content } = Astro.props.article
+const { title, description } = Astro.props.article.frontmatter;
+---
+
+<Layout>
+  <Navbar />
+
+  <article class="container sm:mx-auto px-14 antialiased font-light text-lg text-justify">
+    <h1 class="text-4xl my-10 font-bold underline decoration-indigo-500 decoration-double">{title}</h1>
+    <p class="text-xl text-neutral-content tracking-wide leading-loose italic my-5 font-medium">{description}</p>
+    <div class="prose-lg mt-10 mb-32">
+      <Content />
+    </div>
+  </article>
+</Layout>

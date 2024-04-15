@@ -1,0 +1,74 @@
+---
+title: 'Tabla polimórfica en Ruby on Rails'
+author: Carlos Gómez
+description: Generación de una tabla polimórfica para guardar un log en ruby on rails.
+tags: ['RoR', 'Polimorfismo', 'Log', 'Ruby on Rails', 'Ruby']
+slug: articles/polymorphic_table_on_ruby_on_rails
+image: '/images/national-cancer-institute-NFvdKIhxYlU-unsplash.jpg'
+---
+
+import Link from '../../components/Link.astro';
+
+### Contexto
+
+Existe el escenario en el cual construimos una bitácora que registra cada movimiento de tarjetas dentro de uno o varios tableros Kanban; en dicho escenario tenemos 2 tableros Kanban, el primero se refiere de **Requerimientos**, y el segundo de **Proyectos**. 
+
+El mecanismo de registro en la bitácora sucede cuando la entidad “requerimiento” o “proyecto” es actualizada en el campo “estatus”. Tenemos entonces el siguiente código.
+
+Para generar el modelo KanbanLog se puede hacer uso del comando rails generate de la siguiente forma
+
+```bash
+rails g model KanbanLog from_status:string to_status:string user:references loggable:references{polymorphic}
+```
+
+Este modelo será el que actué como tabla polimórfica, a la cual se le asocia el “requerimiento” o el “proyecto” como “loggables”.
+
+```ruby
+# frozen_string_literal: true
+
+class KanbanLog < ApplicationRecord
+	belongs_to :user
+	belongs_to :loggable, polymorphic: true
+end
+```
+
+Ahora agregamos las dependencias polimórficas a los modelos de los que buscamos rastrear el estatus
+
+```ruby
+# frozen_string_literal: true
+
+class Request < ApplicationRecord
+	has_many :kanban_logs, as: :loggable, dependent: :delete_all
+end
+
+class Project < ApplicationRecord
+	has_many :kanban_logs, as: :loggable, dependent: :delete_all
+end
+```
+
+Con este código estructurado podríamos crear un log en el controlador:
+
+```ruby
+# frozen_string_literal: true
+
+class KanbanController < ApplicationController
+	def status
+		if resource.update(params)
+			log(resource)
+			...
+		end
+	end
+
+	private
+
+	def log(resource)
+		KanbanLog.create(
+			from_status: params[:from_status],
+			to_status: params[:to_status],
+			user: current_user,
+			loggable: resource
+		)
+	end
+end
+```
+
