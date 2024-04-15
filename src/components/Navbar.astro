@@ -14,19 +14,21 @@ import * as reinaMadreWork from '../content/works/reinamadre.mdx';
 
 <div class="navbar backdrop-blur-sm bg-base-300/30 top-0 sticky z-50">
   <div class="navbar-start">
-    <!-- Mobile -->
     <div class="dropdown">
-      <label tabindex="0" class="btn btn-ghost lg:hidden">
+      <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
-      </label>
-      <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-300 rounded-box w-52">
-        <li tabindex="0">
+      </div>
+      <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+        <li>
           <a href="#work" class="justify-between">
+            Parent
             {work}
-            <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"/></svg>
+            <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+              <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
+            </svg>
           </a>
-          <ul class="p-2 bg-base-300">
-            <li><a href={`/${readyWork.frontmatter.slug}`}>{readyWork.frontmatter.title}</a></li>
+          <ul class="p-2">
+            <li><a href={`/${readyWork.frontmatter.slug}`}>{readyWork.frontmatter.title}>Submenu 1</a></li>
             <li><a href={`/${marialindaWork.frontmatter.slug}`}>{marialindaWork.frontmatter.title}</a></li>
             <li><a href={`/${reinaMadreWork.frontmatter.slug}`}>{reinaMadreWork.frontmatter.title}</a></li>
           </ul>
@@ -34,31 +36,27 @@ import * as reinaMadreWork from '../content/works/reinamadre.mdx';
         <li><a href="#articles">{articles}</a></li>
         <li><a href="#tech">{tech}</a></li>
       </ul>
-
     </div>
-
-    <!-- Logo -->
-    <a href="/" class="btn btn-ghost normal-case text-xl">CG</a>
+    <a href="/" class="btn btn-ghost text-xl">CG</a>
   </div>
 
-  <!-- Expanded -->
   <div class="navbar-center hidden lg:flex">
     <ul class="menu menu-horizontal px-1">
-      <li tabindex="0">
-        <a href="#work">
-          {work}
-          <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"/></svg>
-        </a>
-        <ul class="p-2 bg-base-300">
+      <li>
+        <details>
+          <summary>{work}</summary>
+          <ul class="p-2">
           <li><a href={`/${readyWork.frontmatter.slug}`}>{readyWork.frontmatter.title}</a></li>
           <li><a href={`/${marialindaWork.frontmatter.slug}`}>{marialindaWork.frontmatter.title}</a></li>
           <li><a href={`/${reinaMadreWork.frontmatter.slug}`}>{reinaMadreWork.frontmatter.title}</a></li>
-        </ul>
+          </ul>
+        </details>
       </li>
       <li><a href="/#articles">{articles}</a></li>
       <li><a href="/#tech">{tech}</a></li>
     </ul>
   </div>
+
   <div class="navbar-end">
     <a class="btn btn-success mr-5 fira-code" href={mailto}>{contact}</a>
   </div>
